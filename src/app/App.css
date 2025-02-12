@@ -1,0 +1,7 @@
+
+.aiTextArea {
+    resize: both;
+    min-height: 100px;
+    min-width: 100px;
+    width: 100%;
+}

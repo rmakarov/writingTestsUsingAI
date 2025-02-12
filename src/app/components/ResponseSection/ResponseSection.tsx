@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
 
-const ResponseSection = () => {
+type ResponseSectionType = {
+    aiResponse: string;
+}
+
+const ResponseSection: React.FC<ResponseSectionType> = ({aiResponse = ''}) => {
+  const [aiText, setAiText] = useState('');
+
+  useEffect(() => {
+      setAiText(aiResponse);
+  }, [aiResponse, setAiText]);
+
   return (
-      <div>
-          Response
-      </div>
+      <Container className="p-4">
+          <textarea className="aiTextArea"/>
+      </Container>
   )
 }
 
