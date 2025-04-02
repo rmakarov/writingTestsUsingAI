@@ -14,11 +14,12 @@ const PHIND_CodeLlama_MODEL = 'Phind/Phind-CodeLlama-34B-v2'
 
 export async function testChatGpt(content) {
     const chatCompletion = await client.chat.completions.create({
+        model: GPT_4o_MODEL,
         messages: [{ role: 'user', content }],
-        model: PHIND_CodeLlama_MODEL,
     });
 
     const response = chatCompletion.choices[0]?.message?.content;
     console.log('response: ', response);
+    return response;
 }
 

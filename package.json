@@ -18,14 +18,21 @@
     "url": "https://github.com/rmakarov/writingTestsUsingAI/issues"
   },
   "homepage": "https://github.com/rmakarov/writingTestsUsingAI#readme",
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
+  },
   "dependencies": {
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "bootstrap": "^5.3.3",
+    "deepinfra": "^2.0.2",
     "openai": "^4.80.0",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.8",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "stream": "^0.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",
@@ -36,6 +43,7 @@
     "css-loader": "^7.1.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.6.3",
+    "node-loader": "^2.1.0",
     "style-loader": "^4.0.0",
     "typescript": "^5.7.3",
     "webpack": "^5.97.1",

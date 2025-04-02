@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -11,6 +12,9 @@ module.exports = {
             './src/app',
             'node_modules'
         ],
+        fallback: {
+            fs: false,
+        },
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
     module: {
@@ -43,5 +47,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, "src", "static/index.html"),
         }),
+        new webpack.NormalModuleReplacementPlugin(
+            /^node:/,
+            (resource) => {
+                resource.request = resource.request.replace(/^node:/, '');
+            },
+        )
     ],
 }

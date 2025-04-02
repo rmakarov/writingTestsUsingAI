@@ -1,6 +1,7 @@
 import React, {useRef} from 'react';
 import { Button, Container } from 'react-bootstrap';
-import { testChatGpt, client } from '../../openAI/openAiUtils'
+import { testChatGpt } from '../../openAI/openAiUtils'
+import { generateText } from '../../deepinfra/deepinfraUtils';
 
 type RequestSectionType = {
     onChange: (response: string) => void;
@@ -12,8 +13,11 @@ const RequestSection: React.FC<RequestSectionType> = ({ onChange }) => {
     const aiRequestHandler = React.useCallback(() => {
         console.log('TextArea value', textAreaRef.current.value);
         const responseText = textAreaRef.current.value || '';
-        testChatGpt(responseText);
-    }, [testChatGpt]);
+        const response = generateText(responseText);
+        response.then((result) => {
+            console.log('result: ', result);
+        })
+    }, [generateText]);
 
     return (
         <Container className="p-4">
